@@ -4,8 +4,6 @@ final class ImageLoader {
     static let shared = ImageLoader()
     private let cache = NSCache<NSString, UIImage>()
     
-    private init() {}
-    
     func loadImage(from urlString: String) async -> UIImage? {
         
         if let cachedImage = cache.object(forKey: urlString as NSString) {
@@ -27,23 +25,5 @@ final class ImageLoader {
         }
         
         return nil
-    }
-}
-
-
-final class ImageCache {
-    
-    static let shared = ImageCache()
-    
-    private init() {}
-    
-    private let cache = NSCache<NSString, UIImage>()
-    
-    func getImage(forKey key: String) -> UIImage? {
-        return cache.object(forKey: key as NSString)
-    }
-    
-    func setImage(_ image: UIImage, forKey key: String) {
-        cache.setObject(image, forKey: key as NSString)
     }
 }

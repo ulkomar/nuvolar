@@ -70,7 +70,7 @@ extension DetailedSearchUserViewModel: DetailedSearchUserViewModelLogic {
     
     private func fetchUserPhoto(from imageURL: String) {
         Task { @MainActor in
-            let image = try await ImageLoader.shared.loadImage(from: imageURL)
+            let image = await ImageLoader.shared.loadImage(from: imageURL)
             stateSubject.send(.updatedUserProfile(image))
         }
     }
