@@ -93,6 +93,11 @@ final class InfoblockView: UIStackView {
         }
     }
     
+    func errorMessage(_ text: String) {
+        body = text
+        bodyLabel.textColor = .systemRed
+    }
+    
     // MARK: - Builders
     
     private func makeConfiguredLabel(text: String) -> UILabel {

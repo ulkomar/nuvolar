@@ -24,7 +24,6 @@ final class DetailedSearchUserViewController: BaseViewController, DetailedSearch
     
     private lazy var avatarView = ImageTextView()
     private lazy var name = InfoblockView()
-    private lazy var userType = InfoblockView()
     private lazy var company = InfoblockView()
     private lazy var createdAt = InfoblockView()
     private lazy var updatedAt = InfoblockView()
@@ -75,7 +74,6 @@ extension DetailedSearchUserViewController: LayoutConfigurableView {
         commonStack.addArrangedSubviews([
             avatarView,
             name,
-            userType,
             company,
             createdAt,
             updatedAt,
@@ -111,15 +109,18 @@ extension DetailedSearchUserViewController: BindingConfigurableView {
                 switch state {
                 case .initial(let user):
                     avatarView.label = user.login
-                    userType.set(title: String(localized: "detailed-screen-user-type"), body: user.type)
                     company.title = String(localized: "detailed-screen-company")
                     followersBlock.title = String(localized: "detailed-screen-followers")
-                    followingBlock.title = String(localized: "detailed-screen-followers")
+                    followingBlock.title = String(localized: "detailed-screen-followings")
                     repoBlock.title = String(localized: "mainSearch-repos")
                     name.title = String(localized: "name")
                     createdAt.title = String(localized: "detailed-screen-created")
                     updatedAt.title = String(localized: "detailed-screen-updated")
                 case .updatingFollowers(let followers):
+                    guard let followers else {
+                        followersBlock.errorMessage(String(localized: "detailed-screen-error-request"))
+                        return
+                    }
                     if followers.isEmpty {
                         followersBlock.body = String(localized: "no").capitalized + " " + String(localized: "detailed-screen-followers")
                         return
@@ -130,6 +131,10 @@ extension DetailedSearchUserViewController: BindingConfigurableView {
                         maxVisibleCount: 5
                     )
                 case .updatingFollowings(let followings):
+                    guard let followings else {
+                        followingBlock.errorMessage(String(localized: "detailed-screen-error-request"))
+                        return
+                    }
                     if followings.isEmpty {
                         followingBlock.body = String(localized: "no").capitalized + " " + String(localized: "detailed-screen-followings")
                         return
@@ -140,6 +145,10 @@ extension DetailedSearchUserViewController: BindingConfigurableView {
                         maxVisibleCount: 5
                     )
                 case .updatingRepos(let repos):
+                    guard let repos else {
+                        repoBlock.errorMessage(String(localized: "detailed-screen-error-request"))
+                        return
+                    }
                     if repos.isEmpty {
                         repoBlock.body = String(localized: "no").capitalized + " " + String(localized: "mainSearch-repos")
                         return
@@ -150,6 +159,13 @@ extension DetailedSearchUserViewController: BindingConfigurableView {
                         maxVisibleCount: 10
                     )
                 case .updatingUserInfo(let info):
+                    guard let info else {
+                        createdAt.errorMessage(String(localized: "detailed-screen-error-request"))
+                        updatedAt.errorMessage(String(localized: "detailed-screen-error-request"))
+                        name.errorMessage(String(localized: "detailed-screen-error-request"))
+                        company.errorMessage(String(localized: "detailed-screen-error-request"))
+                        return
+                    }
                     createdAt.body = info.createdAt.toReadableDateFormatt() ?? String(localized: "undetermined").capitalized
                     updatedAt.body = info.updatedAt.toReadableDateFormatt() ?? String(localized: "undetermined").capitalized
                     name.body = info.name ?? String(localized: "undetermined").capitalized

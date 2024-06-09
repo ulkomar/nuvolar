@@ -54,50 +54,54 @@ extension DetailedSearchUserViewModel: DetailedSearchUserViewModelLogic {
     
     // MARK: - Public protocol methods
     
-    func getchUserInfo() {
+    private func getchUserInfo() {
         Task { @MainActor in
             do {
                 let userInfoRequest = GitHubUserInfoModel()
                 let userInfo = try await netServices.send(request: userInfoRequest, url: user.url)
                 stateSubject.send(.updatingUserInfo(userInfo.domain))
             } catch {
-                print(error)
+                stateSubject.send(.updatingUserInfo(nil))
+                print("getchUserInfo error: ", error.localizedDescription, " || ", error)
             }
         }
     }
     
-    func fetchFollowers() {
+    private func fetchFollowers() {
         Task { @MainActor in
             do {
                 let followersRequest = GitHubUserFollowersModel()
                 let followers = try await netServices.send(request: followersRequest, url: user.followersUrl)
                 stateSubject.send(.updatingFollowers(followers.domain))
             } catch {
-                print(error)
+                stateSubject.send(.updatingFollowers(nil))
+                print("fetchFollowers error: ", error.localizedDescription, " || ", error)
             }
         }
     }
     
-    func fetchFollowing() {
+    private func fetchFollowing() {
         Task { @MainActor in
             do {
                 let followingRequest = GitHubUserFollowingModel()
                 let followings = try await netServices.send(request: followingRequest, url: user.followingUrl.withoutCurlyBraces())
                 stateSubject.send(.updatingFollowings(followings.domain))
             } catch {
-                print(error)
+                stateSubject.send(.updatingFollowings(nil))
+                print("fetchFollowing error: ", error.localizedDescription, " || ", error)
             }
         }
     }
     
-    func fetchRepos() {
+    private func fetchRepos() {
         Task { @MainActor in
             do {
                 let repoRequest = GitHubUserReposModel()
                 let repos = try await netServices.send(request: repoRequest, url: user.reposUrl)
                 stateSubject.send(.updatingRepos(repos.domain))
             } catch {
-                print(error)
+                stateSubject.send(.updatingRepos(nil))
+                print("fetchRepos error: ", error.localizedDescription, " || ", error)
             }
         }
     }

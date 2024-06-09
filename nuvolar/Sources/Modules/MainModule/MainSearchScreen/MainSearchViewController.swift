@@ -58,15 +58,6 @@ final class MainSearchViewController: BaseViewController, MainSearchViewControll
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    // Example data
-    let people: [UserModel] = [
-        .init(name: "John Doe", image: UIImage(resource: .man)),
-        .init(name: "Jane Smith", image: UIImage(resource: .man)),
-        .init(name: "Sam Wilson", image: UIImage(resource: .man)),
-        .init(name: "Sam Wilson", image: UIImage(resource: .man)),
-    ]
-    
-    
     // MARK: - Data Source
     
     func configureDataSource() {

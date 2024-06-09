@@ -30,6 +30,7 @@ final class MainSearchViewModel: ViewModel {
     private(set) var users = [GitHubUsersModel.Item]()
     private var page = 0
     private var requestString = ""
+    private var isLoading = false
 }
 
 // MARK: - MainSearchViewModelLogic
@@ -59,26 +60,34 @@ extension MainSearchViewModel: MainSearchViewModelLogic {
     
     func cancellSearchButtonTapped() {
         users = []
+        page = 0
         stateSubject.send(.updateModels(users.map({ $0.domain })))
     }
     
     func sendSearchRequest(for userName: String, page: Int = 0) {
+        isLoading = true
         Task { @MainActor in
             let request = GitHubUsersModel(name: userName.lowercased(), page: page)
             do {
                 self.requestString = userName
                 let response = try await netServices.send(request: request)
-                users = response.items
-                let models = response.items.map({ $0.domain })
-                stateSubject.send(.updateModels(models))
+                if page == 0 {
+                    self.users = response.items
+                } else {
+                    self.users.append(contentsOf: response.items)
+                }
+                let models = self.users.map({ $0.domain })
+                self.stateSubject.send(.updateModels(models))
+                self.isLoading = false
             } catch {
                 print(error)
+                self.isLoading = false
             }
         }
     }
     
     func sendSearchRequestForPaging(currentVisibleIndex index: Int) {
-        guard index >= users.count - 1 && users.count > 15 else { return }
+        guard index >= users.count - 1 && users.count > 15 && !isLoading else { return }
         page += 1
         sendSearchRequest(for: requestString, page: page)
     }

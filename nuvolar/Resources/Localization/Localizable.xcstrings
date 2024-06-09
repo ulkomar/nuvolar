@@ -23,6 +23,17 @@
         }
       }
     },
+    "detailed-screen-error-request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error while getting information"
+          }
+        }
+      }
+    },
     "detailed-screen-followers" : {
       "extractionState" : "manual",
       "localizations" : {
