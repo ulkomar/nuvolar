@@ -9,6 +9,6 @@ import UIKit
 
 extension GitHubUsersModel.Item: DomainMappable {
     var domain: UserModel {
-        UserModel(name: login, image: UIImage())
+        UserModel(name: login, url: avatarUrl)
     }
 }

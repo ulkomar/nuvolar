@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 final class UserCell: UICollectionViewListCell {
     
     // MARK: - Properties
     
-    private var userImage = UIImage()
     private var userName = String()
+    private let viewModel = AvatarCellViewModel()
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Initialization
     
@@ -21,6 +23,7 @@ final class UserCell: UICollectionViewListCell {
         accessories = [
             .disclosureIndicator()
         ]
+        configureBinding()
     }
     
     required init?(coder: NSCoder) {
@@ -32,22 +35,39 @@ final class UserCell: UICollectionViewListCell {
     override func updateConfiguration(using state: UICellConfigurationState) {
         super.updateConfiguration(using: state)
         backgroundConfiguration = UserCell.getBackgroundConfiguration(for: state)
-        contentConfiguration = AvatarCellConfiguration(image: userImage, name: userName)
+        contentConfiguration = AvatarCellConfiguration(image: viewModel.imageObserver, name: userName)
     }
     
-    // MARK: -Setter
+    // MARK: - Setter
     
-    func set(userImage: UIImage, userName: String) {
+    func set(imageUrl: String, userName: String) {
         self.userName = userName
-        self.userImage = userImage
+        viewModel.fetchImage(urlString: imageUrl)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        viewModel.prepareForReuse()
     }
     
     // MARK: - Configurations
     
     static func getBackgroundConfiguration(for state: UICellConfigurationState) -> UIBackgroundConfiguration {
-        var bgConfig = UIBackgroundConfiguration.listPlainCell()
-        bgConfig.cornerRadius = 20
+        let bgConfig = UIBackgroundConfiguration.clear()
         return bgConfig
     }    
+}
+
+// MARK: - BindingConfigurableView
+
+extension UserCell: BindingConfigurableView {
+    func bindInner() {
+        viewModel.$imageObserver
+            .compactMap { $0 }
+            .sink { [weak self] image in
+                self?.setNeedsUpdateConfiguration()
+            }
+            .store(in: &cancellables)
+    }
 }
 

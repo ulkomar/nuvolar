@@ -30,6 +30,13 @@ class BaseViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let backButton = UIBarButtonItem()
+                backButton.title = ""
+                navigationItem.backBarButtonItem = backButton
+    }
+    
     // MARK: - Public methods
     
     func setNvigationBarVisibility(for state: ShowingState) {

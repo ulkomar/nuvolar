@@ -10,5 +10,5 @@ import UIKit
 struct UserModel: Identifiable, Hashable {
     var id: String = UUID().uuidString
     let name: String
-    let image: UIImage
+    let url: String
 }

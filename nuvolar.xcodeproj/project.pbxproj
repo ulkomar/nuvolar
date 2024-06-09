@@ -19,6 +19,9 @@
 		8B9172152C161A8400CC9B80 /* GitHubUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9172142C161A8400CC9B80 /* GitHubUserInfoModel.swift */; };
 		8B9172172C161BC900CC9B80 /* GitHubUserInfoModel+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9172162C161BC900CC9B80 /* GitHubUserInfoModel+Domain.swift */; };
 		8B9172192C161FE000CC9B80 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9172182C161FE000CC9B80 /* String+Date.swift */; };
+		8B91721B2C162E5700CC9B80 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91721A2C162E5700CC9B80 /* DeviceType.swift */; };
+		8B91721E2C1630B300CC9B80 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91721D2C1630B300CC9B80 /* ImageCache.swift */; };
+		8B9172212C16426900CC9B80 /* AvatarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9172202C16426900CC9B80 /* AvatarCellViewModel.swift */; };
 		8BFD106A2C11ADB5009DE574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD10692C11ADB5009DE574 /* AppDelegate.swift */; };
 		8BFD106C2C11ADB5009DE574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD106B2C11ADB5009DE574 /* SceneDelegate.swift */; };
 		8BFD106E2C11ADB5009DE574 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD106D2C11ADB5009DE574 /* MainSearchViewController.swift */; };
@@ -94,6 +97,9 @@
 		8B9172142C161A8400CC9B80 /* GitHubUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserInfoModel.swift; sourceTree = "<group>"; };
 		8B9172162C161BC900CC9B80 /* GitHubUserInfoModel+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitHubUserInfoModel+Domain.swift"; sourceTree = "<group>"; };
 		8B9172182C161FE000CC9B80 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		8B91721A2C162E5700CC9B80 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		8B91721D2C1630B300CC9B80 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		8B9172202C16426900CC9B80 /* AvatarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCellViewModel.swift; sourceTree = "<group>"; };
 		8BFD10662C11ADB5009DE574 /* nuvolar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nuvolar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFD10692C11ADB5009DE574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFD106B2C11ADB5009DE574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +174,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B91721C2C1630AC00CC9B80 /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				8B91721D2C1630B300CC9B80 /* ImageCache.swift */,
+			);
+			path = Caching;
+			sourceTree = "<group>";
+		};
+		8B91721F2C16426100CC9B80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B9172202C16426900CC9B80 /* AvatarCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8BFD105D2C11ADB5009DE574 = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +289,7 @@
 				8B00B88B2C143FC30063275C /* Subviews+Ex.swift */,
 				8B91720D2C1612A000CC9B80 /* String+withoutCurlyBraces.swift */,
 				8B9172182C161FE000CC9B80 /* String+Date.swift */,
+				8B91721A2C162E5700CC9B80 /* DeviceType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +297,7 @@
 		8BFD109E2C11B097009DE574 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				8B91721C2C1630AC00CC9B80 /* Caching */,
 				8BFD10F62C135AB4009DE574 /* Domain */,
 				8BFD10E22C121656009DE574 /* Models */,
 				8BFD10A92C11B228009DE574 /* Network */,
@@ -396,6 +420,7 @@
 		8BFD10CA2C11E5D5009DE574 /* Avatar Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8B91721F2C16426100CC9B80 /* ViewModel */,
 				8BFD10CC2C11E603009DE574 /* AvatarCellConfiguration.swift */,
 				8BFD10CE2C11E62F009DE574 /* AvatarCellContentView.swift */,
 				8BFD10D12C11FDA5009DE574 /* AvatarCell.swift */,
@@ -617,6 +642,7 @@
 				8BFD10FD2C13BB9E009DE574 /* Array+Existance.swift in Sources */,
 				8BFD10C72C11D0C6009DE574 /* BaseViewController.swift in Sources */,
 				8BFD10CD2C11E603009DE574 /* AvatarCellConfiguration.swift in Sources */,
+				8B9172212C16426900CC9B80 /* AvatarCellViewModel.swift in Sources */,
 				8BFD10B02C11B262009DE574 /* CoordinatorProtocol.swift in Sources */,
 				8B91720E2C1612A000CC9B80 /* String+withoutCurlyBraces.swift in Sources */,
 				8BFD106E2C11ADB5009DE574 /* MainSearchViewController.swift in Sources */,
@@ -634,9 +660,11 @@
 				8BFD10E82C121717009DE574 /* Host.swift in Sources */,
 				8BFD106C2C11ADB5009DE574 /* SceneDelegate.swift in Sources */,
 				8BFD10C52C11CEB0009DE574 /* MainSearchModels.swift in Sources */,
+				8B91721E2C1630B300CC9B80 /* ImageCache.swift in Sources */,
 				8BFD10A42C11B15B009DE574 /* MainSearchViewModel.swift in Sources */,
 				8BFD10CF2C11E62F009DE574 /* AvatarCellContentView.swift in Sources */,
 				8BFD11032C13C4D4009DE574 /* InfoblockView.swift in Sources */,
+				8B91721B2C162E5700CC9B80 /* DeviceType.swift in Sources */,
 				8BFD10BC2C11BDC4009DE574 /* BindingConfigurable.swift in Sources */,
 				8BFD10D52C11FF52009DE574 /* UserModel.swift in Sources */,
 				8BFD10D72C11FFB9009DE574 /* Cell+Identifier.swift in Sources */,

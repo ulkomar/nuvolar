@@ -9,10 +9,9 @@ import Combine
 import UIKit
 
 protocol MainSearchViewModelLogic: AnyObject {
-    var users: [GitHubUsersModel.Item] { get }
-    
     var state: AnyPublisher<MainSearchModels.State, Never> { get }
     var event: AnyPublisher<MainSearchModels.Event, Never> { get }
+    
     func sendSearchRequestForPaging(currentVisibleIndex index: Int)
     func searchingFieldStatedChanged(isFocused: Bool)
     func sendSearchRequest(for userName: String, page: Int)
@@ -27,7 +26,8 @@ final class MainSearchViewModel: ViewModel {
     private let stateSubject = CurrentValueSubject<MainSearchModels.State, Never>(.emptyViewShowing)
     private let eventSubject = PassthroughSubject<MainSearchModels.Event, Never>()
     
-    private(set) var users = [GitHubUsersModel.Item]()
+    private var users = [GitHubUsersModel.Item]()
+    private var userModels = [UserModel]()
     private var page = 0
     private var requestString = ""
     private var isLoading = false
@@ -77,6 +77,7 @@ extension MainSearchViewModel: MainSearchViewModelLogic {
                     self.users.append(contentsOf: response.items)
                 }
                 let models = self.users.map({ $0.domain })
+                userModels = self.users.map({ $0.domain })
                 self.stateSubject.send(.updateModels(models))
                 self.isLoading = false
             } catch {

@@ -57,6 +57,7 @@ final class MainSearchViewController: BaseViewController, MainSearchViewControll
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+
     
     // MARK: - Data Source
     
@@ -69,7 +70,8 @@ final class MainSearchViewController: BaseViewController, MainSearchViewControll
                 for: indexPath
             )
             guard let cell = cell as? UserCell else { return cell }
-            cell.set(userImage: item.image, userName: item.name)
+
+            cell.set(imageUrl: item.url, userName: item.name)
             return cell
         }
         collectionView.dataSource = dataSource

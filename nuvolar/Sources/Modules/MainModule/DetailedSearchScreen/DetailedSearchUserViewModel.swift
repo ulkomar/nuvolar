@@ -46,6 +46,7 @@ extension DetailedSearchUserViewModel: DetailedSearchUserViewModelLogic {
     }
     
     func prepareForDisplayint() {
+        fetchUserPhoto(from: user.avatarUrl)
         getchUserInfo()
         fetchFollowers()
         fetchFollowing()
@@ -64,6 +65,13 @@ extension DetailedSearchUserViewModel: DetailedSearchUserViewModelLogic {
                 stateSubject.send(.updatingUserInfo(nil))
                 print("getchUserInfo error: ", error.localizedDescription, " || ", error)
             }
+        }
+    }
+    
+    private func fetchUserPhoto(from imageURL: String) {
+        Task { @MainActor in
+            let image = try await ImageLoader.shared.loadImage(from: imageURL)
+            stateSubject.send(.updatedUserProfile(image))
         }
     }
     

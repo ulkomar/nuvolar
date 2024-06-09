@@ -124,6 +124,17 @@
           }
         }
       }
+    },
+    "username" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username:"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

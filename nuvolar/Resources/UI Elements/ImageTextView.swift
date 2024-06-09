@@ -25,6 +25,15 @@ final class ImageTextView: UIStackView {
         }
     }
     
+    var image: UIImage? {
+        get {
+            logoView.image
+        }
+        set {
+            logoView.image = newValue
+        }
+    }
+    
     // MARK: - Initialization
     
     override init(frame: CGRect) {
@@ -65,7 +74,7 @@ extension ImageTextView: LayoutConfigurableView {
         logoView.layer.borderColor = UIColor.separator.withAlphaComponent(0.2).cgColor
         logoView.layer.borderWidth = 1
         
-        labelView.font = UIFont.preferredFont(forTextStyle: .caption1).withSize(16)
+        labelView.font = UIFont.preferredFont(forTextStyle: .headline).withSize(16)
     }
     
     func configureLayout() {

@@ -70,7 +70,7 @@ extension AvatarCellContentView: LayoutConfigurableView {
         // Set up constraints for avatarView
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         avatarView.contentMode = .scaleAspectFill
-        avatarView.backgroundColor = .red
+        avatarView.backgroundColor = .separator
         
         avatarView.clipsToBounds = true
         userName.translatesAutoresizingMaskIntoConstraints = false

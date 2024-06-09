@@ -10,7 +10,7 @@ import UIKit
 struct AvatarCellConfiguration: UIContentConfiguration {
     // MARK: - Properties
 
-    let image: UIImage
+    let image: UIImage?
     let name: String
 
     // MARK: - Open methods

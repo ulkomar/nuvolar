@@ -88,12 +88,22 @@ extension DetailedSearchUserViewController: LayoutConfigurableView {
     }
     
     func configureLayout() {
+        if Device.isPad {
+            NSLayoutConstraint.activate([
+                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                scrollView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+                scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+                scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
+                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+        }
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
             commonStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
             commonStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             commonStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
@@ -108,7 +118,10 @@ extension DetailedSearchUserViewController: BindingConfigurableView {
                 guard let self else { return }
                 switch state {
                 case .initial(let user):
+                    title = user.login
+                    var image = UIImage()
                     avatarView.label = user.login
+                    avatarView.label = String(localized: "username") + " \(user.login)"
                     company.title = String(localized: "detailed-screen-company")
                     followersBlock.title = String(localized: "detailed-screen-followers")
                     followingBlock.title = String(localized: "detailed-screen-followings")
@@ -170,6 +183,9 @@ extension DetailedSearchUserViewController: BindingConfigurableView {
                     updatedAt.body = info.updatedAt.toReadableDateFormatt() ?? String(localized: "undetermined").capitalized
                     name.body = info.name ?? String(localized: "undetermined").capitalized
                     company.body = info.company ?? String(localized: "undetermined").capitalized
+                case .updatedUserProfile(let image):
+                    guard let image else { return }
+                    self.avatarView.image = image
                 }
             }
             .store(in: &cancellables)
