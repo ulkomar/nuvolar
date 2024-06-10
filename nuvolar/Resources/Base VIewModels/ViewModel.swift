@@ -8,17 +8,17 @@
 import Combine
 
 protocol IViewModel: ObservableObject {
-    var netServices: Net { get }
+    var netServices: NetServiceProtocol { get }
     var coordinator: CoordinatorProtocol? { get set }
 }
 
-extension IViewModel {
-    var netServices: Net {
-        Net()
-    }
-}
-
 class ViewModel: IViewModel {
+    var netServices: NetServiceProtocol
+    
+    init(netServices: NetServiceProtocol = Net()) {
+        self.netServices = netServices
+    }
+    
     var cancellables: Set<AnyCancellable> = []
     var coordinator: CoordinatorProtocol?
 }

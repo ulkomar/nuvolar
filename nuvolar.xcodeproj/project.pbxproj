@@ -13,6 +13,11 @@
 		8B00B8922C15F8690063275C /* GitHubUserFollowersModel+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00B8912C15F8690063275C /* GitHubUserFollowersModel+Domain.swift */; };
 		8B00B8942C1604590063275C /* GitHubUserFollowingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00B8932C1604590063275C /* GitHubUserFollowingModel.swift */; };
 		8B00B8962C16049E0063275C /* GitHubUserFollowingModel+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00B8952C16049E0063275C /* GitHubUserFollowingModel+Domain.swift */; };
+		8B629A632C16CA7D0028B55D /* MainSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B629A622C16CA7D0028B55D /* MainSearchViewModelTests.swift */; };
+		8B629A662C16CAFC0028B55D /* GitHubUseItemMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B629A652C16CAFC0028B55D /* GitHubUseItemMock.swift */; };
+		8B629A682C16CC340028B55D /* MockNetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B629A672C16CC340028B55D /* MockNetService.swift */; };
+		8B629A6B2C16CCC30028B55D /* ViewModel+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B629A6A2C16CCC30028B55D /* ViewModel+Ex.swift */; };
+		8B629A6D2C16EC850028B55D /* DetailedSearchUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B629A6C2C16EC850028B55D /* DetailedSearchUserViewModelTests.swift */; };
 		8B91720E2C1612A000CC9B80 /* String+withoutCurlyBraces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91720D2C1612A000CC9B80 /* String+withoutCurlyBraces.swift */; };
 		8B9172102C16144500CC9B80 /* GitHubUserReposModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91720F2C16144500CC9B80 /* GitHubUserReposModel.swift */; };
 		8B9172122C16149F00CC9B80 /* GitHubUserReposModel+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9172112C16149F00CC9B80 /* GitHubUserReposModel+Domain.swift */; };
@@ -22,14 +27,12 @@
 		8B91721B2C162E5700CC9B80 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91721A2C162E5700CC9B80 /* DeviceType.swift */; };
 		8B91721E2C1630B300CC9B80 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91721D2C1630B300CC9B80 /* ImageLoader.swift */; };
 		8B9172212C16426900CC9B80 /* AvatarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9172202C16426900CC9B80 /* AvatarCellViewModel.swift */; };
+		8B9172242C164CA700CC9B80 /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9172232C164CA700CC9B80 /* ImageLoaderTests.swift */; };
 		8BFD106A2C11ADB5009DE574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD10692C11ADB5009DE574 /* AppDelegate.swift */; };
 		8BFD106C2C11ADB5009DE574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD106B2C11ADB5009DE574 /* SceneDelegate.swift */; };
 		8BFD106E2C11ADB5009DE574 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD106D2C11ADB5009DE574 /* MainSearchViewController.swift */; };
 		8BFD10732C11ADB7009DE574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFD10722C11ADB7009DE574 /* Assets.xcassets */; };
 		8BFD10762C11ADB7009DE574 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8BFD10752C11ADB7009DE574 /* Base */; };
-		8BFD10812C11ADB7009DE574 /* nuvolarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD10802C11ADB7009DE574 /* nuvolarTests.swift */; };
-		8BFD108B2C11ADB7009DE574 /* nuvolarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD108A2C11ADB7009DE574 /* nuvolarUITests.swift */; };
-		8BFD108D2C11ADB7009DE574 /* nuvolarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD108C2C11ADB7009DE574 /* nuvolarUITestsLaunchTests.swift */; };
 		8BFD10A42C11B15B009DE574 /* MainSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD10A32C11B15B009DE574 /* MainSearchViewModel.swift */; };
 		8BFD10A82C11B1F0009DE574 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD10A72C11B1F0009DE574 /* ViewModel.swift */; };
 		8BFD10AB2C11B22D009DE574 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD10AA2C11B22D009DE574 /* Net.swift */; };
@@ -75,13 +78,6 @@
 			remoteGlobalIDString = 8BFD10652C11ADB5009DE574;
 			remoteInfo = nuvolar;
 		};
-		8BFD10872C11ADB7009DE574 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8BFD105E2C11ADB5009DE574 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8BFD10652C11ADB5009DE574;
-			remoteInfo = nuvolar;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +87,11 @@
 		8B00B8912C15F8690063275C /* GitHubUserFollowersModel+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitHubUserFollowersModel+Domain.swift"; sourceTree = "<group>"; };
 		8B00B8932C1604590063275C /* GitHubUserFollowingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserFollowingModel.swift; sourceTree = "<group>"; };
 		8B00B8952C16049E0063275C /* GitHubUserFollowingModel+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitHubUserFollowingModel+Domain.swift"; sourceTree = "<group>"; };
+		8B629A622C16CA7D0028B55D /* MainSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchViewModelTests.swift; sourceTree = "<group>"; };
+		8B629A652C16CAFC0028B55D /* GitHubUseItemMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUseItemMock.swift; sourceTree = "<group>"; };
+		8B629A672C16CC340028B55D /* MockNetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetService.swift; sourceTree = "<group>"; };
+		8B629A6A2C16CCC30028B55D /* ViewModel+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Ex.swift"; sourceTree = "<group>"; };
+		8B629A6C2C16EC850028B55D /* DetailedSearchUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedSearchUserViewModelTests.swift; sourceTree = "<group>"; };
 		8B91720D2C1612A000CC9B80 /* String+withoutCurlyBraces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+withoutCurlyBraces.swift"; sourceTree = "<group>"; };
 		8B91720F2C16144500CC9B80 /* GitHubUserReposModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserReposModel.swift; sourceTree = "<group>"; };
 		8B9172112C16149F00CC9B80 /* GitHubUserReposModel+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitHubUserReposModel+Domain.swift"; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		8B91721A2C162E5700CC9B80 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		8B91721D2C1630B300CC9B80 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		8B9172202C16426900CC9B80 /* AvatarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCellViewModel.swift; sourceTree = "<group>"; };
+		8B9172232C164CA700CC9B80 /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
 		8BFD10662C11ADB5009DE574 /* nuvolar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nuvolar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFD10692C11ADB5009DE574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFD106B2C11ADB5009DE574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,10 +110,6 @@
 		8BFD10752C11ADB7009DE574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BFD10772C11ADB7009DE574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BFD107C2C11ADB7009DE574 /* nuvolarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nuvolarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BFD10802C11ADB7009DE574 /* nuvolarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nuvolarTests.swift; sourceTree = "<group>"; };
-		8BFD10862C11ADB7009DE574 /* nuvolarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nuvolarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BFD108A2C11ADB7009DE574 /* nuvolarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nuvolarUITests.swift; sourceTree = "<group>"; };
-		8BFD108C2C11ADB7009DE574 /* nuvolarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nuvolarUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8BFD10A32C11B15B009DE574 /* MainSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchViewModel.swift; sourceTree = "<group>"; };
 		8BFD10A72C11B1F0009DE574 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8BFD10AA2C11B22D009DE574 /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
@@ -164,16 +162,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BFD10832C11ADB7009DE574 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B629A642C16CAE70028B55D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8B629A652C16CAFC0028B55D /* GitHubUseItemMock.swift */,
+				8B629A672C16CC340028B55D /* MockNetService.swift */,
+				8B629A6A2C16CCC30028B55D /* ViewModel+Ex.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		8B91721C2C1630AC00CC9B80 /* Caching */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +196,6 @@
 			children = (
 				8BFD10682C11ADB5009DE574 /* nuvolar */,
 				8BFD107F2C11ADB7009DE574 /* nuvolarTests */,
-				8BFD10892C11ADB7009DE574 /* nuvolarUITests */,
 				8BFD10672C11ADB5009DE574 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -205,7 +205,6 @@
 			children = (
 				8BFD10662C11ADB5009DE574 /* nuvolar.app */,
 				8BFD107C2C11ADB7009DE574 /* nuvolarTests.xctest */,
-				8BFD10862C11ADB7009DE574 /* nuvolarUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,18 +221,12 @@
 		8BFD107F2C11ADB7009DE574 /* nuvolarTests */ = {
 			isa = PBXGroup;
 			children = (
-				8BFD10802C11ADB7009DE574 /* nuvolarTests.swift */,
+				8B629A642C16CAE70028B55D /* Mocks */,
+				8B9172232C164CA700CC9B80 /* ImageLoaderTests.swift */,
+				8B629A622C16CA7D0028B55D /* MainSearchViewModelTests.swift */,
+				8B629A6C2C16EC850028B55D /* DetailedSearchUserViewModelTests.swift */,
 			);
 			path = nuvolarTests;
-			sourceTree = "<group>";
-		};
-		8BFD10892C11ADB7009DE574 /* nuvolarUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8BFD108A2C11ADB7009DE574 /* nuvolarUITests.swift */,
-				8BFD108C2C11ADB7009DE574 /* nuvolarUITestsLaunchTests.swift */,
-			);
-			path = nuvolarUITests;
 			sourceTree = "<group>";
 		};
 		8BFD10992C11ADC2009DE574 /* Sources */ = {
@@ -528,24 +521,6 @@
 			productReference = 8BFD107C2C11ADB7009DE574 /* nuvolarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8BFD10852C11ADB7009DE574 /* nuvolarUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BFD10962C11ADB7009DE574 /* Build configuration list for PBXNativeTarget "nuvolarUITests" */;
-			buildPhases = (
-				8BFD10822C11ADB7009DE574 /* Sources */,
-				8BFD10832C11ADB7009DE574 /* Frameworks */,
-				8BFD10842C11ADB7009DE574 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8BFD10882C11ADB7009DE574 /* PBXTargetDependency */,
-			);
-			name = nuvolarUITests;
-			productName = nuvolarUITests;
-			productReference = 8BFD10862C11ADB7009DE574 /* nuvolarUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -560,10 +535,6 @@
 						CreatedOnToolsVersion = 15.3;
 					};
 					8BFD107B2C11ADB7009DE574 = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 8BFD10652C11ADB5009DE574;
-					};
-					8BFD10852C11ADB7009DE574 = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = 8BFD10652C11ADB5009DE574;
 					};
@@ -586,7 +557,6 @@
 			targets = (
 				8BFD10652C11ADB5009DE574 /* nuvolar */,
 				8BFD107B2C11ADB7009DE574 /* nuvolarTests */,
-				8BFD10852C11ADB7009DE574 /* nuvolarUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -603,13 +573,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8BFD107A2C11ADB7009DE574 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BFD10842C11ADB7009DE574 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -682,16 +645,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BFD10812C11ADB7009DE574 /* nuvolarTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BFD10822C11ADB7009DE574 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BFD108D2C11ADB7009DE574 /* nuvolarUITestsLaunchTests.swift in Sources */,
-				8BFD108B2C11ADB7009DE574 /* nuvolarUITests.swift in Sources */,
+				8B629A632C16CA7D0028B55D /* MainSearchViewModelTests.swift in Sources */,
+				8B629A6B2C16CCC30028B55D /* ViewModel+Ex.swift in Sources */,
+				8B629A682C16CC340028B55D /* MockNetService.swift in Sources */,
+				8B629A6D2C16EC850028B55D /* DetailedSearchUserViewModelTests.swift in Sources */,
+				8B9172242C164CA700CC9B80 /* ImageLoaderTests.swift in Sources */,
+				8B629A662C16CAFC0028B55D /* GitHubUseItemMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,11 +661,6 @@
 			isa = PBXTargetDependency;
 			target = 8BFD10652C11ADB5009DE574 /* nuvolar */;
 			targetProxy = 8BFD107D2C11ADB7009DE574 /* PBXContainerItemProxy */;
-		};
-		8BFD10882C11ADB7009DE574 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8BFD10652C11ADB5009DE574 /* nuvolar */;
-			targetProxy = 8BFD10872C11ADB7009DE574 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -941,42 +895,6 @@
 			};
 			name = Release;
 		};
-		8BFD10972C11ADB7009DE574 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q88WS7U793;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nuvolar.ulad.nuvolarUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = nuvolar;
-			};
-			name = Debug;
-		};
-		8BFD10982C11ADB7009DE574 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q88WS7U793;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nuvolar.ulad.nuvolarUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = nuvolar;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1003,15 +921,6 @@
 			buildConfigurations = (
 				8BFD10942C11ADB7009DE574 /* Debug */,
 				8BFD10952C11ADB7009DE574 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8BFD10962C11ADB7009DE574 /* Build configuration list for PBXNativeTarget "nuvolarUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BFD10972C11ADB7009DE574 /* Debug */,
-				8BFD10982C11ADB7009DE574 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

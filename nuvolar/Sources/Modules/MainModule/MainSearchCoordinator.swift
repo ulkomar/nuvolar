@@ -53,10 +53,8 @@ final class MainSearchCoordinator: Coordinator {
     private func openDetailedUserScreen(for user: GitHubUsersModel.Item) {
         let module = modulesFactory.makeDetailedScreen(user: user)
         module.viewModel.event
-            .sink { [weak self] event in
-                switch event {
-                    
-                }
+            .sink { _ in
+              // add logic here if needed
             }
             .store(in: &cancellables)
         navigationService.pushVC(module, animated: true)

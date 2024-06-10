@@ -1,6 +1,10 @@
 import UIKit
 
-final class ImageLoader {
+protocol ImageLoaderProtocol {
+    func loadImage(from urlString: String) async -> UIImage?
+}
+
+final class ImageLoader: ImageLoaderProtocol {
     static let shared = ImageLoader()
     private let cache = NSCache<NSString, UIImage>()
     
